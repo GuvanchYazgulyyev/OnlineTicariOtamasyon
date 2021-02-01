@@ -1,0 +1,19 @@
+﻿@model MVC5OnlineTicariOtamasyon.Models.Siniflar.Departmanlar
+@{
+    ViewBag.Title = "DepartmanEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="margin:10px 10px 10px 10px;">
+    <h4>Yeni Kategori Ekleme Sayfası</h4>
+    <form class="form-group" method="post">
+        <br />
+        Departman Ad
+        @Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control" })
+
+        <br />
+        <button class="btn btn-primary">Kaydet</button>
+
+    </form>
+</div>
+

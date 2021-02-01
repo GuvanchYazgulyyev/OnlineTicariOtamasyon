@@ -7,7 +7,7 @@ using System.Web;
 
 namespace MVC5OnlineTicariOtamasyon.Models.Siniflar
 {
-    public class Departman
+    public class Departmanlar
     {
         [Key]
         public int DepartmanID { get; set; }

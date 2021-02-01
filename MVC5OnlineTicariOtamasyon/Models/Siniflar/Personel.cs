@@ -28,7 +28,7 @@ namespace MVC5OnlineTicariOtamasyon.Models.Siniflar
         public string PersonelGorsel { get; set; }
 
         public ICollection<SatisHareket> SatisHarekets { get; set; }
-        public Departman Departman { get; set; }
+        public Departmanlar Departmanlar { get; set; }
 
 
     }
