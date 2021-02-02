@@ -11,14 +11,16 @@
             <th>Departman Adı:</th>
             <th>Sil</th>
             <th>Güncelle</th>
+            <th>Detaylar</th>
         </tr>
         @foreach (var x in Model)
         {
             <tr>
                 <td>@x.DepartmanID</td>
                 <td>@x.DepartmanAd</td>
-                <td><a href="/Kategori/KategoriSil/@x.DepartmanID" class="btn btn-outline-danger">Sil</a></td>
-                <td><a href="/Kategori/KategoriGetir/@x.DepartmanID" class="btn btn-outline-warning">Güncelle</a></td>
+                <td><a href="/Departman/DepartmanSil/@x.DepartmanID" class="btn btn-outline-danger">Sil</a></td>
+                <td><a href="/Departman/DepartmanGetir/@x.DepartmanID" class="btn btn-outline-warning">Güncelle</a></td>
+                <td><a href="/Departman/KategoriGetir/@x.DepartmanID" class="btn btn-outline-secondary">Detaylar</a></td>
             </tr>
         }
     </table>
