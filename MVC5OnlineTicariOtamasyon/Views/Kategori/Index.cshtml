@@ -8,12 +8,13 @@
 
 <div style="margin: 10px 10px 10px 10px">
     <table class="table table-bordered">
-        <tr>
-            <th>ID:</th>
-            <th>Kategori Adı:</th>
-            <th>Sil</th>
-            <th>Güncelle</th>
-        </tr>
+      
+            <tr>
+                <th>ID:</th>
+                <th>Kategori Adı:</th>
+                <th>Sil</th>
+                <th>Güncelle</th>
+            </tr>
         @foreach (var x in Model)
         {
             <tr>
@@ -28,3 +29,20 @@
 <div>
     <a href="/Kategori/KategoriEkle" class="btn btn-outline-success" style="margin-left:10px;">Kategori Ekle</a>
 </div>
+
+
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>*@

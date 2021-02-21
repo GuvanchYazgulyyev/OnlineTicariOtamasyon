@@ -10,12 +10,14 @@ namespace MVC5OnlineTicariOtamasyon.Models.Siniflar
     {
         [Key]
         public int SatisID { get; set; }
-        //Urun
-        public Urun Urun { get; set; }
-        //Cari
-        public Cari Cari { get; set; }
-        //Personel
-        public Personel Personel { get; set; }
+
+        public virtual Urun Urun { get; set; }
+        public virtual Cari Cari { get; set; }
+        public virtual  Personel Personel { get; set; }
+
+        public int Urunid { get; set; }
+        public int Cariid { get; set; }
+        public int Personelid { get; set; }
 
         public DateTime Tarih { get; set; }
         public int Adet { get; set; }

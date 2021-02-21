@@ -37,6 +37,7 @@ namespace MVC5OnlineTicariOtamasyon.Controllers
         [HttpPost]
         public ActionResult UrunEkle(Urun u)
         {
+            u.Durum = true;
             dr.Uruns.Add(u);
             dr.SaveChanges();
             return RedirectToAction("Index");
@@ -80,6 +81,12 @@ namespace MVC5OnlineTicariOtamasyon.Controllers
             urng.Kategoriid = u.Kategoriid;
             dr.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult UrunCiktisi()
+        {
+            var dg = dr.Uruns.ToList();
+            return View(dg);
         }
 
     }

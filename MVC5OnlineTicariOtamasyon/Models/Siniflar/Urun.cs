@@ -25,8 +25,13 @@ namespace MVC5OnlineTicariOtamasyon.Models.Siniflar
         public bool Durum { get; set; }
 
         [Column(TypeName = "Varchar")]
-        [StringLength(465)]
+        [StringLength(1000)]
         public string UrunGorsel { get; set; }
+
+        [Column(TypeName = "Varchar")]
+        [StringLength(1000)]
+        public string UrunAciklama { get; set; }
+
         public int Kategoriid { get; set; }
         public virtual Kategori Kategori { get; set; }
         

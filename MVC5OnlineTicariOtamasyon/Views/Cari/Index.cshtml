@@ -1,0 +1,41 @@
+﻿@using MVC5OnlineTicariOtamasyon.Models.Siniflar
+@model List<Cari>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="margin: 10px 10px 10px 10px">
+    <table class="table table-bordered">
+        <tr>
+            <th>ID:</th>
+            <th>Müşteri Ad Soyad:</th>            
+            <th>Müşteri Tel:</th>
+            <th>Müşteri Ünvan:</th>
+            <th>Şehir:</th>
+            <th>Mail:</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Detaylar</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.CariID</td>
+                <td>@x.CariAd @x.CariSoyad</td>
+                <td>@x.CariTel</td>
+                <td>@x.CariUnvan</td>
+                <td>@x.CariSehir</td>
+                <td>@x.CariMail</td>
+                <td><a href="/Cari/CariSil/@x.CariID" class="btn btn-outline-danger">Sil</a></td>
+                <td><a href="/Cari/CariGetir/@x.CariID" class="btn btn-outline-warning">Güncelle</a></td>
+                <td><a href="/Cari/MusteriSatis/@x.CariID" class="btn btn-outline-secondary">Satış Geçmişi</a></td>
+            </tr>
+        }
+    </table>
+</div>
+<div>
+    <a href="/Cari/CariEkle" class="btn btn-outline-success" style="margin-left:10px;">Müşteri Ekle</a>
+</div>
+
+

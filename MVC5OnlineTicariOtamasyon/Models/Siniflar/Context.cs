@@ -18,6 +18,8 @@ namespace MVC5OnlineTicariOtamasyon.Models.Siniflar
         public DbSet<Personel> Personels { get; set; }
         public DbSet<SatisHareket> SatisHarekets { get; set; }
         public DbSet<Urun> Uruns { get; set; }
-        
+        public DbSet<UrnDetay> UrnDetays { get; set; }
+        public DbSet<Yapilacaklar> Yapilacaklars { get; set; }
+
     }
 }

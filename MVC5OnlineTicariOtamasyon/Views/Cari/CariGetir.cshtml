@@ -1,0 +1,42 @@
+﻿@model MVC5OnlineTicariOtamasyon.Models.Siniflar.Cari
+@{
+    ViewBag.Title = "CariGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("CariGuncelle", "Cari", FormMethod.Post))
+{
+    <div style="margin:10px 10px 10px 10px;">
+        <h4>Müşteri Güncelleme</h4>
+        <br />
+        Müşteri Ad
+        @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CariAd, "", new { @style = "color:red" })
+        <br />
+        Müşteri Soyad
+        @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CariSoyad, "", new { @style = "color:red" })
+
+        <br />
+        Müşteri Telefon
+        @Html.TextBoxFor(x => x.CariTel, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CariTel, "", new { @style = "color:red" })
+
+        <br />
+        Müşteri Ünvan
+        @Html.TextBoxFor(x => x.CariUnvan, new { @class = "form-control" })
+        <br />
+        Müşteri Şehir
+        @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })
+
+        <br />
+        Müşteri Mail
+        @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.CariID)
+        <br />
+        <button class="btn btn-warning">Digişiklikleri Kaydet</button>
+    </div>
+}
+
+
+

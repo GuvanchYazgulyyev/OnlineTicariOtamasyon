@@ -1,0 +1,36 @@
+﻿@using MVC5OnlineTicariOtamasyon.Models.Siniflar
+@model List<FaturaKalem>
+@{
+    ViewBag.Title = "FaturaDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="margin:10px 10px 10px 10px;">
+    <h4>Fatura Kalem Detay Sayfası</h4>
+    <br />
+
+
+    <table class="table table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Açıklama</th>
+            <th>Miktar</th>
+            <th>Birim Fiyat</th>
+            <th>Tutar</th>
+        </tr>
+        @foreach (var g in Model)
+        {
+            <tr>
+                <td>@g.FaturaKalemID</td>
+                <td>@g.Aciklama</td>
+                <td>@g.Miktar</td>
+                <td>@g.BirimFiyat</td>
+                <td>@g.Tutar</td>
+            </tr>
+        }
+
+    </table>
+    <a href="/Fatura/FaturaKalemEkle/" class="btn btn-outline-info">Yeni Kalem Girişi</a>
+
+</div>
+

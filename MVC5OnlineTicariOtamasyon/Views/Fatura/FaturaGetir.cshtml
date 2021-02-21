@@ -1,0 +1,46 @@
+﻿@model MVC5OnlineTicariOtamasyon.Models.Siniflar.Fatura
+@{
+    ViewBag.Title = "FaturaGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("FaturaGuncelle", "Fatura", FormMethod.Post))
+{
+    <div style="margin:10px 10px 10px 10px;">
+        <h4>Fatura Güncelleme</h4>
+        <br />
+        Seri No
+        @Html.TextBoxFor(x => x.FaturaSeriNo, new { @class = "form-control" })
+        <br />
+        Sıra No
+        @Html.TextBoxFor(x => x.FaturaSiraNo, new { @class = "form-control" })
+
+        <br />
+        Vergi Dairesi
+        @Html.TextBoxFor(x => x.VergiDairesi, new { @class = "form-control" })
+
+
+        <br />
+        Tarih
+        @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+        <br />
+        Saat
+        @Html.TextBoxFor(x => x.Saat, new { @class = "form-control" })
+
+        <br />
+        Teslim Eden
+        @Html.TextBoxFor(x => x.TeslimEden, new { @class = "form-control" })
+        <br />
+        Teslim Alan
+        @Html.TextBoxFor(x => x.TeslimAlan, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.FaturaID)
+        <br />
+        <button class="btn btn-warning">Digişiklikleri Kaydet</button>
+    </div>
+}
+
+
+
+
