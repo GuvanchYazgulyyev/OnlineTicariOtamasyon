@@ -1,0 +1,43 @@
+﻿@using MVC5OnlineTicariOtamasyon.Models.Siniflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "DepartmanPerSatis";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div style="margin:10px 10px 10px 10px;">
+    <h4>D.Personle Satış Sayfası</h4>
+    <br />
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Personel Adı: @ViewBag.dp</li>
+    </ol>
+
+    <table class="table table-dark">
+        <tr>
+            <th>Satış ID</th>
+            <th>Ürün</th>
+            <th>Cari</th>
+            <th>Fiyat</th>
+            <th>Adet</th>
+            <th>Toplam</th>
+            <th>Tarih</th>
+            <th>Yazdır</th>
+        </tr>
+        @foreach (var g in Model)
+        {
+            <tr>
+                <td>@g.SatisID</td>
+                <td>@g.Urun.UrunAd</td>
+                <td>@g.Cari.CariAd @g.Cari.CariSoyad</td>
+                <td>@g.Fiyat</td>
+                <td>@g.Adet</td>
+                <td>@g.Toplam</td>
+                <td>@g.Tarih</td>
+                <td><a href="#" class="btn" style="background-color:lawngreen">Yazdır</a></td>
+            </tr>
+        }
+
+    </table>
+</div>
+

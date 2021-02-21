@@ -1,0 +1,43 @@
+﻿@using MVC5OnlineTicariOtamasyon.Models.Siniflar
+@model List<Urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="margin: 10px 10px 10px 10px">
+    <table class="table table-bordered">
+        <tr>
+            <th>ID:</th>
+            <th>Urun Adı:</th>
+            <th>Marka</th>
+            <th>Stok</th>
+            <th>Alış Fiyat</th>
+            <th>Satış Fiyat</th>
+            @*<th>Durum</th>*@
+            @*<th>Urun Görsel</th>*@
+            <th>Kategori</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.UrunID</td>
+                <td>@x.UrunAd</td>
+                <td>@x.Marka</td>
+                <td>@x.Stok</td>
+                <td>@x.AlisFiyat</td>
+                <td>@x.SatisFiyat</td>
+                @*<td>@x.Durum</td>*@
+                @*<td>@x.UrunGorsel</td>*@
+                <td>@x.Kategori.KategoriAd</td>
+                <td><a href="/Urun/UruniSil/@x.UrunID" class="btn btn-outline-danger">Sil</a></td>
+                <td><a href="/Urun/UrunGetir/@x.UrunID" class="btn btn-outline-warning">Güncelle</a></td>
+            </tr>
+        }
+    </table>
+</div>
+<div>
+    <a href="/Urun/UrunEkle/" class="btn btn-outline-success" style="margin-left:10px;">Urun Ekle</a>
+</div>

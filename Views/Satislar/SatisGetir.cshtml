@@ -1,0 +1,41 @@
+﻿@model MVC5OnlineTicariOtamasyon.Models.Siniflar.SatisHareket
+@{
+    ViewBag.Title = "SatisGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("SatisGuncelle", "Satislar", FormMethod.Post))
+{
+    <div style="margin:10px 10px 10px 10px;">
+        <h4>Satış Güncelleme</h4>
+
+        <br />
+        Ürun Ad
+        @Html.DropDownListFor(x => x.Urunid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+        <br />
+        Müşteri
+        @Html.DropDownListFor(x => x.Cariid, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+
+        <br />
+        Personel
+        @Html.DropDownListFor(x => x.Personelid, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control" })
+        <br />
+        Adet
+        @Html.TextBoxFor(x => x.Adet, new { @class = "form-control" })
+        <br />
+        Fiyat
+        @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
+        <br />
+        Toplam Tutar
+        @Html.TextBoxFor(x => x.Toplam, new { @class = "form-control" })
+
+        <br />
+
+        @Html.HiddenFor(x => x.SatisID)
+        <br />
+        <button class="btn btn-warning">Digişiklikleri Kaydet</button>
+    </div>
+}
+
+
+
