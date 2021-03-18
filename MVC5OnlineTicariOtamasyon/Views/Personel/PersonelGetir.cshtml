@@ -6,35 +6,35 @@
 
 <h2>PersonelGetir</h2>
 
-@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post))
+@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-<div style="margin:10px 10px 10px 10px;">
-    <h4>Müşteri Güncelleme</h4>
-    <br />
-    Personel Ad
-    @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
-    <br />
-    Personel Soyad
-    @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
+    <div style="margin:10px 10px 10px 10px;">
+        <h4>Müşteri Güncelleme</h4>
+        <br />
+        Personel Ad
+        @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
+        <br />
+        Personel Soyad
+        @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
 
-    <br />
-    Personel Telefon
-    @Html.TextBoxFor(x => x.PersonelTel, new { @class = "form-control" })
+        <br />
+        Personel Telefon
+        @Html.TextBoxFor(x => x.PersonelTel, new { @class = "form-control" })
 
-    <br />
-    Personel Mail
-    @Html.TextBoxFor(x => x.PersonelMail, new { @class = "form-control" })
+        <br />
+        Personel Mail
+        @Html.TextBoxFor(x => x.PersonelMail, new { @class = "form-control" })
 
-    <br />
-    Personel Resim
-    @Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control" })
-    <br />
-    Departman
-    @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
-    @Html.HiddenFor(x => x.PersonelID)
-    <br />
-    <button class="btn btn-warning">Digişiklikleri Kaydet</button>
-</div>
+        <br />
+        Personel Resim
+        <input type="file" name="PersonelGorsel" />
+        <br />
+        Departman
+        @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.PersonelID)
+        <br />
+        <button class="btn btn-warning">Digişiklikleri Kaydet</button>
+    </div>
 }
 
 

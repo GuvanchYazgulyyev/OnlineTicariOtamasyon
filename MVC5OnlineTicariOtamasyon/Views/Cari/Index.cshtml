@@ -8,7 +8,6 @@
 <div style="margin: 10px 10px 10px 10px">
     <table class="table table-bordered">
         <tr>
-            <th>ID:</th>
             <th>Müşteri Ad Soyad:</th>            
             <th>Müşteri Tel:</th>
             <th>Müşteri Ünvan:</th>
@@ -21,7 +20,6 @@
         @foreach (var x in Model)
         {
             <tr>
-                <td>@x.CariID</td>
                 <td>@x.CariAd @x.CariSoyad</td>
                 <td>@x.CariTel</td>
                 <td>@x.CariUnvan</td>

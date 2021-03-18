@@ -35,6 +35,11 @@ namespace MVC5OnlineTicariOtamasyon.Models.Siniflar
         [Column(TypeName = "Varchar")]
         [StringLength(40, ErrorMessage = "En Fazla 40 Karakter Yazabilirsiniz.")]
         public string CariMail { get; set; }
+
+        [Column(TypeName = "Varchar")]
+        [StringLength(20)]
+        public string CariSifre { get; set; }
+
         public bool Durum { get; set; }
 
         public ICollection<SatisHareket> SatisHarekets { get; set; }

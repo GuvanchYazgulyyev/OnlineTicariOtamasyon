@@ -11,7 +11,7 @@
 
     <table class="table table-dark">
         <tr>
-            <th>Satış ID</th>
+            @*<th>Satış ID</th>*@
             <th>Ürün</th>
             <th>Cari</th>
             <th>Personel</th>
@@ -24,14 +24,14 @@
         @foreach (var g in Model)
         {
             <tr>
-                <td>@g.SatisID</td>
+                @*<td>@g.SatisID</td>*@
                 <td>@g.Urun.UrunAd</td>
                 <td>@g.Cari.CariAd @g.Cari.CariSoyad</td>
                 <td>@g.Personel.PersonelAd @g.Personel.PersonelSoyad</td>
                 <td>@g.Fiyat</td>
                 <td>@g.Adet</td>
                 <td>@g.Toplam</td>
-                <td>@g.Tarih</td>
+                <td>@Convert.ToDateTime(g.Tarih).ToString("dd/MM/yyyy")</td>
                 @*<td><a href="#" class="btn" style="background-color:lawngreen">Yazdır</a></td>*@
             </tr>
         }

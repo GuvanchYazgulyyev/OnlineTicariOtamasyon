@@ -25,7 +25,8 @@ namespace MVC5OnlineTicariOtamasyon.Controllers
             var de4 = dr.Personels.Count().ToString();
             ViewBag.d4 = de4;
 
-            return View();
+            var deger = dr.Yapilacaklars.ToList();
+            return View(deger);
         }
     }
 }

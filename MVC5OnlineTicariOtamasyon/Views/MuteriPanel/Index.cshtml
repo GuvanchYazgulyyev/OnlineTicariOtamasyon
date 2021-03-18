@@ -1,0 +1,85 @@
+﻿@model MVC5OnlineTicariOtamasyon.Models.Siniflar.Cari
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MusteriPanel.cshtml";
+}
+
+<h3>Müşteri Bilgi Paneli</h3>
+
+<br />
+
+@using (Html.BeginForm("Index2", "MuteriPanel", FormMethod.Post))
+{
+<table class="table table-bordered" >
+    <tr>
+        <td>
+            <label>Mail Adres: @HttpContext.Current.User.Identity.Name</label>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.TextBoxFor(h => h.CariAd, new { @class = "form-control" })
+        </td>
+    <tr>
+        <td>
+            @Html.TextBoxFor(h => h.CariSoyad, new { @class = "form-control" })
+        </td>
+    <tr>
+        <td>
+            @Html.TextBoxFor(h => h.CariTel, new { @class = "form-control" })
+        </td>
+    <tr>
+        <td>
+            @Html.TextBoxFor(h => h.CariMail, new { @class = "form-control" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.TextBoxFor(h => h.CariSehir, new { @class = "form-control" })
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.TextBoxFor(h => h.CariUnvan, new { @class = "form-control" })
+        </td>
+    </tr>
+   
+</table>
+<button class="btn btn-success"> + Bilgilerimi Güncelle</button>
+    @*<input type="text" class="name" name="CariMail" Placeholder="Mail Adresiniz..." required="" />
+        <input type="password" class="password" name="CariSifre" Placeholder="Şifre..." required="" />
+        <input type="submit" value="Giriş Yap">*@
+}
+
+
+@*<div id="div-boyut">
+        <form method="post">
+            <div>
+                <label><b>BLOG BAŞLIK</b></label>
+                <input type="text" name="Baslik" required="" maxlength="48" class="form-control" />
+            </div>
+            <br />
+            <div>
+                <label><b>BLOG İÇERİK</b></label>
+                <textarea name="Aciklama" cols="40" rows="5" required="" class="form-control"></textarea>
+
+            </div>
+            <br />
+            <div>
+                <label><b>RESİM</b></label>
+                <input type="text" name="Resim" required="" maxlength="500" class="form-control" />
+            </div>
+            <br />
+            <div>
+                <label><b>TARİH</b></label>
+                <input type="text" name="Tarih" required="" maxlength="48" class="form-control" />
+            </div>
+            <br />
+            <div>
+                <button class="btn btn-primary">Blog Ekle</button>
+            </div>
+            <br />
+        </form>
+    </div>*@

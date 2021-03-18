@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVC5OnlineTicariOtamasyon.Models.Siniflar;
+using PagedList;
 
 namespace MVC5OnlineTicariOtamasyon.Controllers
 {
@@ -16,9 +17,9 @@ namespace MVC5OnlineTicariOtamasyon.Controllers
         // GET: Kategori
         // Ve sonra 1 tane index oluşturarak alttaki komutlarla Veritabanımızdan Kategoriler tablosunu
         // Listelemesini istedik
-        public ActionResult Index()
+        public ActionResult Index(int sayfa=1)
         {
-            var katgetir = dr.Kategoris.ToList();
+            var katgetir = dr.Kategoris.ToList().ToPagedList(sayfa ,7);
 
             return View(katgetir);
         }

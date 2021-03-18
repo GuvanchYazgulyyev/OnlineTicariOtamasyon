@@ -63,7 +63,7 @@ namespace MVC5OnlineTicariOtamasyon.Controllers
             ViewBag.d15 = is15;
 
 
-            var is16 = dr.SatisHarekets.Where(x => x.Tarih == bugun).Sum(y => y.Toplam).ToString();
+            var is16 = dr.SatisHarekets.Where(x => x.Tarih == bugun).Sum(y => (decimal?)y.Toplam).ToString();
             ViewBag.d16 = is16;
 
             return View();

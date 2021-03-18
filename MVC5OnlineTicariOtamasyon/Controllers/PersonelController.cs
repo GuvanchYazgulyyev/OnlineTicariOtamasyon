@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -30,10 +31,20 @@ namespace MVC5OnlineTicariOtamasyon.Controllers
             ViewBag.dgr1 = deger1;
             return View();
         }
-
+        // Resim Ekleme Kısmı
         [HttpPost]
         public ActionResult PersonelEkle(Personel p)
         {
+
+            if (Request.Files.Count > 0)
+            {
+                string dosyaad = Path.GetFileName(Request.Files[0].FileName);
+                string uzanti = Path.GetExtension(Request.Files[0].FileName);
+                string yol = "~/Resim/" + dosyaad + uzanti;
+                Request.Files[0].SaveAs(Server.MapPath(yol));
+                p.PersonelGorsel = "/Resim/" + dosyaad + uzanti;
+            }
+
             p.Durum = true;
             dr.Personels.Add(p);
             dr.SaveChanges();
@@ -65,11 +76,22 @@ namespace MVC5OnlineTicariOtamasyon.Controllers
 
         public ActionResult PersonelGuncelle(Personel p)
         {
+
+            if (Request.Files.Count > 0)
+            {
+                string dosyaad = Path.GetFileName(Request.Files[0].FileName);
+                string uzanti = Path.GetExtension(Request.Files[0].FileName);
+                string yol = "~/Resim/" + dosyaad + uzanti;
+                Request.Files[0].SaveAs(Server.MapPath(yol));
+                p.PersonelGorsel = "/Resim/" + dosyaad + uzanti;
+            }
+
             var prguncel = dr.Personels.Find(p.PersonelID);
             prguncel.PersonelAd = p.PersonelAd;
             prguncel.PersonelSoyad = p.PersonelSoyad;
             prguncel.PersonelGorsel = p.PersonelGorsel;
             prguncel.PersonelTel = p.PersonelTel;
+            prguncel.PersonelMail = p.PersonelMail;
             prguncel.Departmanid = p.Departmanid;
             dr.SaveChanges();
             return RedirectToAction("Index");

@@ -57,6 +57,20 @@ namespace MVC5OnlineTicariOtamasyon.Controllers
             return View(fdetay);
         }
 
+
+        // Pop Up Kısmı
+        public ActionResult FaturaDetayPopUp(int id)
+        {
+            var fdetay = dr.FaturaKalems.Where(h => h.Faturaid == id).ToList();
+            return View(fdetay);
+        }
+
+        public PartialViewResult PopupDetay()
+        {
+            var deger = dr.FaturaKalems.ToList();
+            return PartialView(deger);
+        }
+
         // Fatura Kalem Ekleme Kısmı
         [HttpGet]
         public ActionResult FaturaKalemEkle()

@@ -6,35 +6,40 @@
 
 <div style="margin:10px 10px 10px 10px;">
     <h4>Personel Ekleme Sayfası</h4>
-    <form class="form-group" method="post">
-        <br />
-        Personel Ad
-        @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
-        <br />
-        Personel Soyad
-        @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
+    @using (Html.BeginForm("PersonelEkle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <form class="form-group" method="post">
+            <br />
+            Personel Ad
+            @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
+            <br />
+            Personel Soyad
+            @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
 
-        <br />
-        Personel Telefon
-        @Html.TextBoxFor(x => x.PersonelTel, new { @class = "form-control" })
-        <br />
-        Personel Mail
-        @Html.TextBoxFor(x => x.PersonelMail, new { @class = "form-control" })
-        <br />
-        Personel Görsel
-        @Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control" })
-        <br />
-        Departman
-        @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+            <br />
+            Personel Telefon
+            @Html.TextBoxFor(x => x.PersonelTel, new { @class = "form-control" })
+            <br />
+            Personel Mail
+            @Html.TextBoxFor(x => x.PersonelMail, new { @class = "form-control" })
+            <br />
+            Personel Görsel
+            @*@Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control" })*@
+            <input type="file" name="PersonelGorsel" />
+            <br />
+            Departman
+            @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
 
 
-        @*Durum
-        @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })*@
-        @Html.HiddenFor(x => x.PersonelID)
-        <br />
-        <button class="btn btn-primary">Kaydet</button>
+            @*Durum
+                @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })*@
+            @Html.HiddenFor(x => x.PersonelID)
+            <br />
+            <button class="btn btn-primary">Kaydet</button>
 
-    </form>
+        </form>
+    }
+
 </div>
 
 

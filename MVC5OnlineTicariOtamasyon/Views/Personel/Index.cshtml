@@ -8,10 +8,10 @@
 <div style="margin: 10px 10px 10px 10px">
     <table class="table table-bordered">
         <tr>
-            <th>ID:</th>
             <th>Personel Ad Soyad:</th>
             <th>Personel Tel:</th>
             <th>Personel Mail:</th>
+            <th>Personel Görsel:</th>
             <th>Departman:</th>
             <th>Sil</th>
             <th>Güncelle</th>
@@ -20,10 +20,10 @@
         @foreach (var x in Model)
         {
             <tr>
-                <td>@x.PersonelID</td>
                 <td>@x.PersonelAd @x.PersonelSoyad</td>
                 <td>@x.PersonelTel</td>
                 <td>@x.PersonelMail</td>
+                <td><img src="@x.PersonelGorsel" alt="Personel Resimleri" width="80px";/> </td>
                 <td>@x.Departmanlar.DepartmanAd</td>
                 <td><a href="/Personel/PersonelSil/@x.PersonelID" class="btn btn-outline-danger">Sil</a></td>
                 <td><a href="/Personel/PersonelGetir/@x.PersonelID" class="btn btn-outline-warning">Güncelle</a></td>

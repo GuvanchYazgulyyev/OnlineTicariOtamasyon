@@ -10,7 +10,6 @@
     <table id="tbl1" class="table table-bordered">
         <thead>
             <tr>
-                <th>ID:</th>
                 <th>Ürün:</th>
                 <th>Müşteri:</th>
                 <th>Personel:</th>
@@ -25,14 +24,13 @@
         @foreach (var x in Model)
         {
             <tr>
-                <td>@x.SatisID</td>
                 <td>@x.Urun.UrunAd</td>
                 <td>@x.Cari.CariAd @x.Cari.CariSoyad</td>
                 <td>@x.Personel.PersonelAd @x.Personel.PersonelSoyad</td>
                 <td>@x.Adet</td>
                 <td>@x.Fiyat</td>
                 <td>@x.Toplam</td>
-                <td>@x.Tarih</td>
+                <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MM/yyyy")</td>
                 <td><a href="/Satislar/SatisGetir/@x.SatisID" class="btn btn-outline-warning">Güncelle</a></td>
                 <td><a href="/Satislar/SatisDetay/@x.SatisID" class="btn btn-outline-secondary">Detaylar</a></td>
             </tr>

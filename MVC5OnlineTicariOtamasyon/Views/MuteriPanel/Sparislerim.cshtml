@@ -1,0 +1,27 @@
+﻿@using MVC5OnlineTicariOtamasyon.Models.Siniflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "Sparislerim";
+    Layout = "~/Views/Shared/_MusteriPanel.cshtml";
+}
+
+<br />
+<h4>Spariş Geçmişim</h4>
+<table class="table table-bordered">
+    <tr>
+        <th>Ürün Adı</th>
+        <th>Ürün Birim Fiyatı</th>
+        <th>Ürün Toplam Fiyatı</th>
+        <th>Tarih</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Urun.UrunAd</td>
+            <td>@x.Fiyat</td>
+            <td>@x.Toplam</td>
+            <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MM/yyyy")</td>
+        </tr>
+    }
+</table>
+

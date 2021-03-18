@@ -10,10 +10,9 @@
     <table id="tbl1" class="table table-bordered">
         <thead>
             <tr>
-                <th>ID:</th>
                 <th>Seri No:</th>
                 <th>Sıra No:</th>
-                <th>Vergi Dairesi:</th>
+                @*<th>Vergi Dairesi:</th>*@
                 <th>Tarih:</th>
                 <th>Saat:</th>
                 <th>Teslim Eden:</th>
@@ -21,29 +20,38 @@
                 <th>Toplam:</th>
                 <th>Güncelle</th>
                 <th>Detaylar</th>
+                <th>Pop Up Detay</th>
+                <th>Yeni Kalem</th>
             </tr>
         </thead>
         @foreach (var x in Model)
         {
-    <tr>
-        <td>@x.FaturaID</td>
-        <td>@x.FaturaSeriNo</td>
-        <td>@x.FaturaSiraNo</td>
-        <td>@x.VergiDairesi</td>
-        <td>@x.Tarih</td>
-        <td>@x.Saat</td>
-        <td>@x.TeslimEden</td>
-        <td>@x.TeslimAlan</td>
-        <td>@x.Toplam</td>
-        <td><a href="/Fatura/FaturaGetir/@x.FaturaID" class="btn btn-outline-warning">Güncelle</a></td>
-        <td><a href="/Fatura/FaturaDetay/@x.FaturaID" class="btn btn-outline-secondary">Detaylar</a></td>
-    </tr>
+            <tr>
+                <td>@x.FaturaSeriNo</td>
+                <td>@x.FaturaSiraNo</td>
+                @*<td>@x.VergiDairesi</td>*@
+                <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MM/yyyy")</td>
+                <td>@x.Saat</td>
+                <td>@x.TeslimEden</td>
+                <td>@x.TeslimAlan</td>
+                <td>@x.Toplam ₺</td>
+                <td><a href="/Fatura/FaturaGetir/@x.FaturaID" class="btn btn-outline-warning">Güncelle</a></td>
+                <td><a href="/Fatura/FaturaDetay/@x.FaturaID" class="btn btn-outline-secondary">Detaylar</a></td>
+                <td><a href="/Fatura/FaturaDetay/@x.FaturaID" class="btn btn-outline-info" data-toggle="modal" data-target="#Modal1">Pop Up Detay</a></td>
+                <td><a href="/Fatura/FaturaDetay/@x.FaturaID" class="btn btn-outline-primary">Yeni Kalem</a></td>
+            </tr>
         }
     </table>
+    <div>
+        <button type="button" style="margin:10px;" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">PopUp Penceresi</button>
+    </div>
+
+    <div>
+        <a href="/Fatura/FaturaEkle" class="btn btn-outline-success" style="margin-left:10px;">Yeni Fatura Ekle</a>
+    </div>
 </div>
-<div>
-    <a href="/Fatura/FaturaEkle" class="btn btn-outline-success" style="margin-left:10px;">Yeni Fatura Ekle</a>
-</div>
+
+
 
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 
@@ -60,6 +68,29 @@
 <script>
     $('#tbl1').dataTable({});
 </script>
+
+
+
+<!------Pop Up Kısmı-->
+
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Pop Upn Ekranı</h2>
+            </div>
+            <div class="modal-body">
+
+                <table class="table table-bordered">
+                    @Html.Action("PopupDetay", "Fatura")
+
+                </table>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">İptal Et</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

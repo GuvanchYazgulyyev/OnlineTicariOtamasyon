@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVC5OnlineTicariOtamasyon.Models.Siniflar;
+using PagedList;
 
 namespace MVC5OnlineTicariOtamasyon.Controllers
 {
@@ -12,11 +13,23 @@ namespace MVC5OnlineTicariOtamasyon.Controllers
 
         Context dr = new Context();
         // GET: Urun
-        public ActionResult Index()
+        public ActionResult Index(int sayfa=1)
         {
-            var urngtr = dr.Uruns.Where(y => y.Durum == true).ToList();
+            var urngtr = dr.Uruns.Where(y => y.Durum == true).ToList().ToPagedList(sayfa, 7);
             return View(urngtr);
         }
+
+        // Arama Yapmak için greken Kodlar
+      
+        //public ActionResult Index(string p)
+        //{
+        //    var urngtr = from x in dr.Uruns select x;
+        //    if (!string.IsNullOrEmpty(p))
+        //    {
+        //        urngtr = urngtr.Where(x => x.UrunAd.Contains(p));
+        //    }
+        //    return View(urngtr.ToList());
+        //}
 
         [HttpGet]
         public ActionResult UrunEkle()
@@ -87,6 +100,31 @@ namespace MVC5OnlineTicariOtamasyon.Controllers
         {
             var dg = dr.Uruns.ToList();
             return View(dg);
+        }
+
+        [HttpGet]
+        public ActionResult SatisYap(int id)
+        {
+            List<SelectListItem> d3 = (from x in dr.Personels.ToList()
+                                       select new SelectListItem
+                                       {
+                                           Text = x.PersonelAd + " " + x.PersonelSoyad,
+                                           Value = x.PersonelID.ToString()
+                                       }).ToList();
+            ViewBag.dgr3 = d3;
+            var deger1 = dr.Uruns.Find(id);
+            ViewBag.dgr1 = deger1.UrunID;
+            ViewBag.dgr2 = deger1.SatisFiyat;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SatisYap(SatisHareket s)
+        {
+            s.Tarih = DateTime.Parse(DateTime.Now.ToShortDateString());
+            dr.SatisHarekets.Add(s);
+            dr.SaveChanges();
+            return RedirectToAction("Index", "Satislar");
         }
 
     }

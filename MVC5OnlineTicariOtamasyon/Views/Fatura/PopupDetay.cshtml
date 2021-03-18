@@ -1,0 +1,22 @@
+﻿@using MVC5OnlineTicariOtamasyon.Models.Siniflar
+@model List<FaturaKalem>
+
+
+<!------Pop Up  Kısmı-->
+
+
+    <tr>
+        <td>Açıklama</td>
+        <td>Miktar</td>
+        <td>Birim Fiyat</td>
+        <td>Tutar</td>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Aciklama</td>
+            <td>@x.Miktar</td>
+            <td>@x.BirimFiyat ₺</td>
+            <td>@x.Tutar ₺</td>
+        </tr>
+    }
